@@ -1,0 +1,44 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.18' // Latest 2.7.x version
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+}
+
+group = 'com.example'
+version = '1.0.0'
+sourceCompatibility = '11' // Java 11 supported here
+
+ext {
+    akkaVersion = '2.8.2'
+    akkaManagementVersion = '1.4.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot Dependencies
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // Akka Dependencies
+    implementation "com.typesafe.akka:akka-actor-typed_2.13:${akkaVersion}"
+    implementation "com.typesafe.akka:akka-cluster-typed_2.13:${akkaVersion}"
+    implementation "com.typesafe.akka:akka-cluster-sharding-typed_2.13:${akkaVersion}"
+    implementation "com.typesafe.akka:akka-slf4j_2.13:${akkaVersion}"
+    implementation "com.typesafe.akka:akka-remote_2.13:${akkaVersion}"
+    implementation "com.typesafe.akka:akka-discovery_2.13:${akkaVersion}"
+
+    // Akka Management for Cluster HTTP
+    implementation "com.lightbend.akka.management:akka-management_2.13:${akkaManagementVersion}"
+    implementation "com.lightbend.akka.management:akka-management-cluster-http_2.13:${akkaManagementVersion}"
+
+    // Testing Dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

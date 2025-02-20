@@ -1,0 +1,18 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Akka-Node-2" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="11" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="MAIN_CLASS_NAME" value="com.example.akka.AkkaClusterApplication" />
+    <module name="akka-cluster-demo.main" />
+    <option name="VM_PARAMETERS" value="-Dserver.port=8082 -Dakka.remote.artery.canonical.port=2552 -Dakka.cluster.seed-nodes.0=akka://ClusterSystem@127.0.0.1:2551 -Dakka.cluster.seed-nodes.1=akka://ClusterSystem@127.0.0.1:2552" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.example.akka.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
