@@ -9,7 +9,10 @@ import org.springframework.context.annotation.Configuration;
 public class AkkaActorSystemConfig {
 
     @Bean
-    public ActorSystem<?> actorSystem() {
-        return ActorSystem.create(Behaviors.empty(), "ClusterSystem");
+    public ActorSystem<Void> actorSystem() {
+        ActorSystem<Void> system = ActorSystem.create(Behaviors.empty(), "ClusterSystem");
+
+
+        return system;
     }
 }

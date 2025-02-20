@@ -3,11 +3,14 @@ package com.example.akka.cluster;
 import akka.actor.typed.Behavior;
 import akka.actor.typed.javadsl.*;
 
+import java.io.Serializable;
+
 public class IoTEntity extends AbstractBehavior<IoTEntity.Command> {
 
-    public interface Command {}
+    public interface Command extends Serializable {}
 
     public static final class SensorData implements Command {
+        private static final long serialVersionUID = 1L; // Unique ID for serialization
         public final String containerId;
         public final String deviceType;
         public final String readings;
