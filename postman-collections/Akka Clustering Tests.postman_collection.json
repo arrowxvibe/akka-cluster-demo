@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "eae13b13-aeee-48df-977e-c5717e9b74b6",
+		"name": "Akka Clustering Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32487029"
+	},
+	"item": [
+		{
+			"name": "health check - 8082",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "health check - 8081",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send message - one any one node, it distributes by sharding",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8081/sensor-data?containerId=C125&deviceType=Temperature&readings=25.5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8081",
+					"path": [
+						"sensor-data"
+					],
+					"query": [
+						{
+							"key": "containerId",
+							"value": "C125"
+						},
+						{
+							"key": "deviceType",
+							"value": "Temperature"
+						},
+						{
+							"key": "readings",
+							"value": "25.5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
